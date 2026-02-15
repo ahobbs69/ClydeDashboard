@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐙 Clyde's Trading Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .badge {
+            background: #00d26a;
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 24px;
+            border-radius: 16px;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .stat-card .label {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .stat-card .sublabel {
+            color: #666;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
+        .stat-card.blue .value { color: #4facfe; }
+        .stat-card.green .value { color: #00d26a; }
+        .stat-card.orange .value { color: #ff9a56; }
+        .stat-card.purple .value { color: #a855f7; }
+        
+        .quick-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: #4facfe;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #00d26a;
+        }
+        
+        .trades-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .trades-section h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .trade-row {
+            display: grid;
+            grid-template-columns: 1fr 80px 100px 100px 100px;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            align-items: center;
+        }
+        
+        .trade-row.header {
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .trade-row:not(.header) {
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+        
+        .side {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .side.buy { background: rgba(0,210,106,0.2); color: #00d26a; }
+        .side.sell { background: rgba(255,79,79,0.2); color: #ff4f4f; }
+        
+        .pnl { color: #00d26a; }
+        .pnl.negative { color: #ff4f4f; }
+        
+        .status {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        
+        .status.open { background: rgba(0,210,106,0.2); color: #00d26a; }
+        .status.pending { background: rgba(255,154,86,0.2); color: #ff9a56; }
+        .status.closed { background: rgba(168,85,247,0.2); color: #a855f7; }
+        
+        .bots-section {
+            margin-top: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .bot-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 100px;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            align-items: center;
+        }
+        
+        .bot-row.header {
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .returns {
+            color: #00d26a;
+            font-weight: 600;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .tab.active {
+            background: #4facfe;
+        }
+        
+        .tab:hover:not(.active) {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐙 Clyde's Trading Dashboard</h1>
+            <span class="badge">PAPER TRADING</span>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <div class="label">Portfolio Value</div>
+                <div class="value">$1,500</div>
+                <div class="sublabel">USDT</div>
+            </div>
+            <div class="stat-card green">
+                <div class="label">Total Profit</div>
+                <div class="value">$210.51</div>
+                <div class="sublabel">All time</div>
+            </div>
+            <div class="stat-card orange">
+                <div class="label">Active Bots</div>
+                <div class="value">3</div>
+                <div class="sublabel">Running</div>
+            </div>
+            <div class="stat-card purple">
+                <div class="label">Open Deals</div>
+                <div class="value">28</div>
+                <div class="sublabel">Tracked</div>
+            </div>
+        </div>
+        
+        <div class="quick-links">
+            <button class="btn btn-primary" onclick="openLink('https://app.gainium.io')">
+                📈 Open Gainium
+            </button>
+            <button class="btn btn-primary" onclick="openLink('https://www.tradingview.com')">
+                📊 Open TradingView
+            </button>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('trades')">Recent Trades</button>
+            <button class="tab" onclick="showTab('bots')">Bot Performance</button>
+            <button class="tab" onclick="showTab('gainium')">Gainium</button>
+            <button class="tab" onclick="showTab('tradingview')">TradingView</button>
+        </div>
+        
+        <div id="trades" class="trades-section">
+            <h2>📋 Recent Trades</h2>
+            <div class="trade-row header">
+                <div>Pair</div>
+                <div>Side</div>
+                <div>Status</div>
+                <div>P&L</div>
+                <div>%</div>
+            </div>
+            <div class="trade-row">
+                <div>WLFI/USDC</div>
+                <div><span class="side sell">SHORT</span></div>
+                <div><span class="status open">open</span></div>
+                <div class="pnl">+$1.71</div>
+                <div class="pnl">+0.48%</div>
+            </div>
+            <div class="trade-row">
+                <div>PENDLE/USDT</div>
+                <div><span class="side buy">BUY</span></div>
+                <div><span class="status pending">pending</span></div>
+                <div>—</div>
+                <div>—</div>
+            </div>
+            <div class="trade-row">
+                <div>CVX/USDT</div>
+                <div><span class="side buy">BUY</span></div>
+                <div><span class="status pending">pending</span></div>
+                <div>—</div>
+                <div>—</div>
+            </div>
+            <div class="trade-row">
+                <div>BTC/USDT</div>
+                <div><span class="side buy">BUY</span></div>
+                <div><span class="status closed">closed</span></div>
+                <div class="pnl">+$124.50</div>
+                <div class="pnl">+2.1%</div>
+            </div>
+        </div>
+        
+        <div id="bots" class="bots-section hidden">
+            <h2>🤖 Bot Performance</h2>
+            <div class="bot-row header">
+                <div>Bot Name</div>
+                <div>Pair</div>
+                <div>Profit</div>
+                <div>Returns</div>
+                <div>Status</div>
+            </div>
+            <div class="bot-row">
+                <div>Moccasin Tortoise</div>
+                <div>WLFI/USDC</div>
+                <div class="pnl">+$210.51</div>
+                <div class="returns">+244.05%</div>
+                <div><span class="status open">open</span></div>
+            </div>
+            <div class="bot-row">
+                <div>Bronze Crane</div>
+                <div>PENDLE/USDT</div>
+                <div>—</div>
+                <div>—</div>
+                <div><span class="status pending">range</span></div>
+            </div>
+            <div class="bot-row">
+                <div>Green Chickadee</div>
+                <div>CVX/USDT</div>
+                <div class="pnl negative">-$3.16</div>
+                <div class="pnl negative">-0.5%</div>
+                <div><span class="status pending">error</span></div>
+            </div>
+        </div>
+        
+        <div id="gainium" class="hidden">
+            <iframe src="https://app.gainium.io" title="Gainium"></iframe>
+        </div>
+        
+        <div id="tradingview" class="hidden">
+            <iframe src="https://www.tradingview.com" title="TradingView"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+        
+        function showTab(tabId) {
+            // Hide all tabs
+            document.getElementById('trades').classList.add('hidden');
+            document.getElementById('bots').classList.add('hidden');
+            document.getElementById('gainium').classList.add('hidden');
+            document.getElementById('tradingview').classList.add('hidden');
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            console.log('Dashboard refresh...');
+        }, 30000);
+    </script>
+</body>
+</html>
