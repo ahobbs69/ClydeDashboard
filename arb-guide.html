@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Arbitrage Guide | Clyde's Reseller Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-red: #FF3B30;
+            --apple-orange: #FF9500;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        h1 { font-size: 42px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(135deg, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 28px; margin: 40px 0 20px; color: var(--apple-blue); }
+        h3 { font-size: 20px; margin: 20px 0 10px; }
+        
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(20px);
+        }
+        
+        .stores-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        .store-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .category-grid { display: grid; grid-template-columns: repeat(3, 1fr)); gap: 12px; }
+        .category {
+            background: linear-gradient(135deg, var(--apple-blue), #5856D6);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .rule-box {
+            background: rgba(52, 199, 89, 0.15);
+            border: 1px solid var(--apple-green);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+        
+        .profit-table { width: 100%; border-collapse: collapse; }
+        .profit-table th, .profit-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .profit-table th { color: var(--apple-blue); }
+        
+        .checklist { list-style: none; }
+        .checklist li { padding: 8px 0; padding-left: 30px; position: relative; }
+        .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--apple-green); }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .tool-card .icon { font-size: 32px; margin-bottom: 8px; }
+        
+        .products-section { margin-top: 40px; }
+        .product-row {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            gap: 16px;
+        }
+        .product-row .name { flex: 1; font-weight: 500; }
+        .product-row .price { color: var(--apple-green); font-weight: 600; }
+        
+        .update-banner {
+            background: linear-gradient(135deg, var(--apple-orange), var(--apple-red));
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        
+        .footer { text-align: center; padding: 40px; color: rgba(255,255,255,0.5); font-size: 14px; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            .stores-grid { grid-template-columns: repeat(2, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐙 Amazon Arbitrage Guide</h1>
+        <p style="color: rgba(255,255,255,0.6); font-size: 18px; margin-bottom: 30px;">
+            Andrew's Reselling Playbook • San Diego Edition
+        </p>
+        
+        <div class="update-banner">
+            📢 Last Updated: February 16, 2026 • Use Amazon Seller App to verify prices in-store
+        </div>
+        
+        <div class="card">
+            <h2>🛒 Best Stores to Source From</h2>
+            <div class="stores-grid">
+                <div class="store-badge">🏠 Home Depot</div>
+                <div class="store-badge">🛍️ Ross</div>
+                <div class="store-badge">🏷️ TJ Maxx</div>
+                <div class="store-badge">🎯 Target</div>
+                <div class="store-badge">🛒 Walmart</div>
+                <div class="store-badge">🎨 Michaels</div>
+                <div class="store-badge">📚 Barnes & Noble</div>
+                <div class="store-badge">🛍️ Burlington</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🔥 Hot Categories (Highest ROI)</h2>
+            <div class="category-grid">
+                <div class="category">💄 Health & Beauty</div>
+                <div class="category">🍳 Kitchen Gadgets</div>
+                <div class="category">🧸 Toys</div>
+                <div class="category">🔌 Electronics</div>
+                <div class="category">🏠 Home & Kitchen</div>
+                <div class="category">🐾 Pet Supplies</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📋 The Golden Rules</h2>
+            <div class="rule-box">
+                <strong>✅ DO:</strong>
+                <ul class="checklist">
+                    <li>Aim for minimum $3 profit per item after all fees</li>
+                    <li>Look for sales rank under 250,000 (lower = better)</li>
+                    <li>Target 50%+ ROI after Amazon fees</li>
+                    <li>Scan everything with Amazon Seller app before buying</li>
+                    <li>Check Keepa for price history</li>
+                </ul>
+            </div>
+            <div class="rule-box" style="background: rgba(255,59,48,0.15); border-color: var(--apple-red);">
+                <strong>❌ DON'T:</strong>
+                <ul class="checklist">
+                    <li>Buy anything that won't至少有 $3 profit</li>
+                    <li>Guess - always scan first</li>
+                    <li>Buy items with too many reviews (too much competition)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>💰 Profit Math Example</h2>
+            <table class="profit-table">
+                <tr><th>Item</th><th>Store Price</th><th>Amazon Price</th><th>Profit</th></tr>
+                <tr><td>Kitchen Gadget</td><td>$10</td><td>$24.99</td><td style="color: var(--apple-green)">+$7.50</td></tr>
+                <tr><td>Beauty Product</td><td>$8</td><td>$19.99</td><td style="color: var(--apple-green)">+$5.80</td></tr>
+                <tr><td>Pet Toy</td><td>$6</td><td>$15.99</td><td style="color: var(--apple-green)">+$4.50</td></tr>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>🛠️ Tools You Need</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="icon">📱</div>
+                    <h4>Amazon Seller App</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px;">FREE • Scan barcodes, check prices</p>
+                </div>
+                <div class="tool-card">
+                    <div class="icon">📊</div>
+                    <h4>Keepa</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px;">FREE • Price history extension</p>
+                </div>
+                <div class="tool-card">
+                    <div class="icon">🔫</div>
+                    <h4>Barcode Scanner</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px;">~$30 • Speed up scanning</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>💵 Startup Costs</h2>
+            <table class="profit-table">
+                <tr><th>Item</th><th>Cost</th></tr>
+                <tr><td>Amazon Individual Account</td><td>FREE (no monthly fee)</td></tr>
+                <tr><td>Initial Inventory</td><td>$200-500</td></tr>
+                <tr><td>Barcode Scanner</td><td>$0-30</td></tr>
+                <tr><td>Shipping Supplies</td><td>$20-50</td></tr>
+                <tr><td><strong>Total Minimum</strong></td><td><strong>~$250</strong></td></tr>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>✅ Getting Started Checklist</h2>
+            <ol style="padding-left: 20px;">
+                <li style="padding: 8px 0;">📱 Download Amazon Seller app</li>
+                <li style="padding: 8px 0;">🛒 Download Keepa browser extension</li>
+                <li style="padding: 8px 0;">📍 Plan your store runs (Mission Valley, UTC, North County)</li>
+                <li style="padding: 8px 0;">💰 Get $300-500 for initial inventory</li>
+                <li style="padding: 8px 0;">🏃 Start with Ross, TJ Maxx, or Home Depot</li>
+                <li style="padding: 8px 0;">📦 Ship to Amazon FBA or do merchant fulfilled</li>
+            </ol>
+        </div>
+        
+        <div class="card products-section">
+            <h2>🎯 Today's Arbitrage Opportunities</h2>
+            <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">
+                Scan these types of items at stores - they often have big price gaps:
+            </p>
+            
+            <h3>🏠 Home Depot Finds</h3>
+            <div class="product-row"><span class="name">Power tools & accessories</span><span class="price">Buy $15 → Sell $40+</span></div>
+            <div class="product-row"><span class="name">Smart home devices</span><span class="price">Buy $20 → Sell $50+</span></div>
+            <div class="product-row"><span class="name">Seasonal décor</span><span class="price">Buy $10 → Sell $25+</span></div>
+            
+            <h3>🛍️ Ross/TJ Maxx Finds</h3>
+            <div class="product-row"><span class="name">Brand name beauty</span><span class="price">Buy $8 → Sell $20+</span></div>
+            <div class="product-row"><span class="name">Kitchen gadgets</span><span class="price">Buy $12 → Sell $30+</span></div>
+            <div class="product-row"><span class="name">Pet toys/treats</span><span class="price">Buy $6 → Sell $18+</span></div>
+            
+            <h3>🎯 Target Finds</h3>
+            <div class="product-row"><span class="name">Electronics accessories</span><span class="price">Buy $15 → Sell $35+</span></div>
+            <div class="product-row"><span class="name">Organizational items</span><span class="price">Buy $8 → Sell $22+</span></div>
+        </div>
+        
+        <div class="card">
+            <h2>🗺️ San Diego Store Clusters</h2>
+            <p><strong>Mission Valley:</strong> Target, Ross, TJ Maxx, Home Depot</p>
+            <p><strong>UTC:</strong> Target, Nordstrom Rack, Burlington</p>
+            <p><strong>North County (Escondido):</strong> Multiple Ross, Walmart, Costco</p>
+            <p><strong>Downtown:</strong> Target, Walmart</p>
+        </div>
+        
+        <div class="footer">
+            <p>🐙 Powered by Clyde • Let's make some money! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
