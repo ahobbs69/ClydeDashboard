@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "sonoscli": {
+      "version": "1.0.0",
+      "installedAt": 1771321927300
+    },
+    "qmd": {
+      "version": "1.0.0",
+      "installedAt": 1771322408887
+    },
+    "supermemory": {
+      "version": "1.0.0",
+      "installedAt": 1771322462046
+    },
+    "moltguard": {
+      "version": "6.0.2",
+      "installedAt": 1771323130427
+    }
+  }
+}
