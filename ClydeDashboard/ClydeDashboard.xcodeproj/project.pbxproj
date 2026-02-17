@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7A154A1D474A18F39827EEDE /* ClydeDashboardMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClydeDashboardMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B92BFA3766E1B11D19EC3EB /* ClydeDashboardiOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClydeDashboardiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A154A1D474A18F39827EEDE /* ClydeDashboardMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ClydeDashboardMac.app; path = ClydeDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B92BFA3766E1B11D19EC3EB /* ClydeDashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClydeDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95460B90BD3CB233D7A73CED /* ClydeDashboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClydeDashboardApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -21,7 +21,7 @@
 		270C4D142793EF07F3CB3507 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B92BFA3766E1B11D19EC3EB /* ClydeDashboardiOS.app */,
+				8B92BFA3766E1B11D19EC3EB /* ClydeDashboard.app */,
 				7A154A1D474A18F39827EEDE /* ClydeDashboardMac.app */,
 			);
 			name = Products;
@@ -69,7 +69,7 @@
 			packageProductDependencies = (
 			);
 			productName = ClydeDashboardiOS;
-			productReference = 8B92BFA3766E1B11D19EC3EB /* ClydeDashboardiOS.app */;
+			productReference = 8B92BFA3766E1B11D19EC3EB /* ClydeDashboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,7 +91,6 @@
 			);
 			mainGroup = D171E476CE3253DB49D1309E;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -199,7 +198,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D96N232JZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -207,6 +208,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clyde.dashboard.ios;
 				PRODUCT_NAME = ClydeDashboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,7 +299,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D96N232JZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +309,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clyde.dashboard.ios;
 				PRODUCT_NAME = ClydeDashboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
