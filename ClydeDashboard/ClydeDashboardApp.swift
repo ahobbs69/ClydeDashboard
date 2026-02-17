@@ -2,7 +2,7 @@
 //  ClydeDashboardApp.swift
 //  ClydeDashboard
 //
-//  Liquid Glass Design - Fixed Safe Areas
+//  Liquid Glass Design - Fixed Bottom
 //
 
 import SwiftUI
@@ -152,9 +152,10 @@ struct ContentView: View {
                         }
                         .padding(.horizontal)
                         
-                        Spacer(minLength: 100)
+                        Spacer(minLength: 150)
                     }
                     .padding(.top, 20)
+                    .padding(.bottom, 50)
                 }
             }
         }
